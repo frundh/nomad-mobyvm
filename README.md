@@ -32,7 +32,9 @@ The compose file creates three containers for Consul, Nomad and Hashi-ui
     docker-compose up -d
 
 **Nomad** - http://localhost:4646
+
 **Consul** - http://localhost:8500
+
 **Hashi-UI** - http://localhost:3000
 
 An example nomad job is included
