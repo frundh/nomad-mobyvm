@@ -37,6 +37,8 @@ The compose file creates three containers for Consul, Nomad and Hashi-ui
 
 **Hashi-UI** - http://localhost:3000
 
-An example nomad job is included
+An example nomad job is included, run from an elevated shell with Nomad.exe in the PATH
 
     nomad run hello-world.nomad
+
+Open to see available endpoints http://localhost:8500/v1/catalog/service/hello-world
