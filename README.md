@@ -13,10 +13,14 @@ Docker File
 -----------
 
 The Docker File is based on: 
+
 https://github.com/eBayClassifiedsGroup/KomPaaS
+
 https://github.com/djenriquez/nomad
 
+
 and compiles a special fork of the Nomad binary:
+
 https://github.com/frundh/nomad/tree/ip-from-env-var
 
 Docker Hub
