@@ -1,0 +1,44 @@
+consul:
+  image: consul:0.9.2
+  privileged: true
+  ports:
+     - "8500:8500"
+
+nomad:
+  image: frundh/nomad:0.1.0
+  privileged: true
+  command: "agent -dev"
+  environment:
+    CONSUL_SERVICE_IP: "10.0.75.2"
+    CONSUL_CHECK_IP: "172.17.0.1"
+    NOMAD_LOCAL_CONFIG: '{ 
+                            "bind_addr": "0.0.0.0",
+                            "advertise": {
+                              "http": "172.17.0.1:4646",
+                              "rpc":  "172.17.0.1:4647",
+                              "serf": "172.17.0.1:4648"
+                            },
+                            "consul": { 
+                              "address": "172.17.0.1:8500",
+                              "checks_use_advertise": true
+                            } 
+                         }'
+  ports:
+     - "4646:4646"
+     - "4647:4647"
+     - "4648:4648"
+  volumes:
+    - "/var/run/docker.sock:/var/run/docker.sock"
+    - "/tmp:/tmp"
+
+hashi-ui:
+  image: jippi/hashi-ui:v0.17.0
+  # Delay start
+  entrypoint: "sh -c 'sleep 5;exec /hashi-ui'"
+  environment:
+    NOMAD_ENABLE: "true"
+    CONSUL_ENABLE: "true"
+    CONSUL_ADDR: "172.17.0.1:8500"
+    NOMAD_ADDR: "http://172.17.0.1:4646"
+  ports:
+     - "3000:3000"
