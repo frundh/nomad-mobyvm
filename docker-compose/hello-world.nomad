@@ -41,6 +41,10 @@ job "hello-world" {
         name = "hello-world"
         port = "http"
 
+        # Traefik tags
+        tags = ["traefik.tags=api",
+                "traefik.frontend.rule=PathPrefix:/hello-world;PathPrefixStrip:/hello-world"]
+
         check {
           type     = "http"
           path     = "/"
