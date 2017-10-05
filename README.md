@@ -41,14 +41,18 @@ The compose file creates three containers for Consul, Nomad and Hashi-ui
 
 **Hashi-UI** - http://localhost:3000
 
-**Traefik-UI** - http://localhost:8080
-
-**Traefik-Proxy** - http://localhost:80
-
 An example nomad job is included, run from an elevated shell with Nomad.exe in the PATH
 
     nomad run hello-world.nomad
 
 Open to see available endpoints in Consul http://localhost:8500/v1/catalog/service/hello-world
+
+**Optionally** start a Traefik reverse proxy with command
+
+    nomad run traefik.nomad
+
+**Traefik-UI** - http://localhost:8080
+
+**Traefik-Proxy** - http://localhost:80
 
 Use Traefik proxy to access Hello-World app from http://localhost/hello-world
