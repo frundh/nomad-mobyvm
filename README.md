@@ -51,8 +51,8 @@ Open to see available endpoints in Consul http://localhost:8500/v1/catalog/servi
 
     nomad run traefik.nomad
 
-**Traefik-UI** - http://localhost:8080
+**Traefik-UI** - http://localhost:8081
 
-**Traefik-Proxy** - http://localhost:80
+**Traefik-Proxy** - http://localhost:8080
 
-Use Traefik proxy to access Hello-World app from http://localhost/hello-world
+Use Traefik proxy to access Hello-World app from http://localhost:8080/hello-world

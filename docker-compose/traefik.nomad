@@ -44,8 +44,8 @@ job "traefik" {
         memory = 256
 
         network {
-          port "proxy"  { static = "8999" }
-          port "web"    { static = "8998" }
+          port "proxy"  { static = "8080" }
+          port "web"    { static = "8081" }
         }
       }
     }
